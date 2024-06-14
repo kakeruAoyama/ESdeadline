@@ -1,26 +1,28 @@
 
 <h1>ES〆切一覧<h1>
 <%= link_to "作成ページ", entryseats_new_path %>
-<%= form_tag entryseats_path, method: :get, class: 'boards__searchForm' do %>
 
-<% @tags.each do |tag| %>
-    <div class="tag-box">
-    <%= link_to tag.name, entryseats_path(name: tag.id) %>
-    </div>
-<% end %>
-    <div class="tag-box">
-    <%= link_to "一覧へ", entryseats_path %>
-    </div>
-<div class="entryseats-container">
-<% @entryseat.each do |t| %>
-<div class="entryseat">
-<%= t.date %>
-<%= t.created_at %>
-        <% b.tags.each do |tag| %>
-    <%= tag.name %>
+<%= form_tag entryseats_path, method: :get, class: 'boards__searchForm' do %>
+    <% @tags.each do |tag| %>
+        <div class="tag-box">
+        <%= link_to tag.name, entryseats_path(name: tag.id) %>
+        </div>
     <% end %>
-<%= link_to "詳細へ", entryseat_path(t.id) %>
-</div>
 <% end %>
+
+<div class="tag-box">
+    <%= link_to "一覧へ", entryseats_path %>
 </div>
-<% end %>
+
+<div class="entryseats-container">
+    <% @entryseat.each do |t| %>
+        <div class="entryseat">
+            <%= t.date %>
+            <%= t.created_at %>
+            <% t.tags.each do |tag| %>
+                <%= tag.name %>
+            <% end %>
+            <%= link_to "詳細へ", entryseat_path(t.id) %>
+        </div>
+    <% end %>
+</div>

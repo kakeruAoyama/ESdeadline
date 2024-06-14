@@ -1,5 +1,4 @@
 class Tag < ApplicationRecord
-    has_many :book_tags, dependent: :destroy
-    has_many :books, through: :book_tags, dependent: :destroy
-    
+    has_many :entryseat_tags, dependent: :destroy
+    has_many :entryseats, through: :entryseat_tags, dependent: :destroy
 end

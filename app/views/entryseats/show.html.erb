@@ -8,9 +8,9 @@
 <div class="entryseat">
   <p><%= @entryseat.date %></p>
   <p><%= @entryseat.created_at %></p>
-  <%=  raw Rinku.auto_link(simple_format(@entryseat.date)) %>
+  <%=  @entryseat.date%>
 </div>
-<% @book.tags.each do |tag| %>
+<% @entryseat.tags.each do |tag| %>
     <%= tag.name %>
 <% end %>
 <%= link_to "トップページに戻る", statics_index_path %>

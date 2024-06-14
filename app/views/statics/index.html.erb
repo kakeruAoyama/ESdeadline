@@ -6,7 +6,7 @@
     <div class="entryseat">
       <%= t.date %>
       <%= t.created_at %>
-    <%= link_to "詳細へ", entryseat_path(params.id) %>
+      <%= link_to "詳細へ", entryseat_path(t.id) %>
     </div>
   <% end %>
 </div>

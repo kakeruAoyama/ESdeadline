@@ -5,25 +5,26 @@
 <h3>コース</h3>
 <h3>本選考orインターン</h3>
 <h3>作成</h3>
-<%= form_for @entryseat do |f| %>
-<div class="field">
-  <%= f.label :date %>
-  <%= f.text_field :date, :size => 140 %>
-</div>
-<div class="check_box">
-    <span>タグ</span>
-    <%= form_for @entryseat do |f| %>
-<%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-  <div class='form-check'>
- <%= tag.label do %>
-    　  <%= tag.check_box %>
-    　  <%= tag.text %>
-    　<% end %>
-  </div>
-<% end %>
-</div>
 
-<%= f.submit "作成する" %>
+<%= form_for @entryseat do |f| %>
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.date_field :date, :size => 140 %>
+  </div>
+
+  <div class="check_box">
+    <span>タグ</span>
+      <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+        <div class='form-check'>
+          <%= tag.label do %>
+            <%= tag.check_box %>
+            <%= tag.text %>
+          <% end %>
+        </div>
+      <% end %>
+  </div>
+
+  <%= f.submit "作成する" %>
 <% end %>
-<%= link_to 'トップページへ', :controller => "entryseat", :action => "index" %>
-<% end %>
+
+<%= link_to 'トップページへ', :controller => "entryseats", :action => "index" %>
