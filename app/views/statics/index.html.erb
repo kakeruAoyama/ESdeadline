@@ -1,0 +1,12 @@
+ <h1>ES〆切一覧<h1>
+ <%= link_to "作成ページ", entryseats_new_path %>
+
+ <div class="entryseats-container">
+  <% @entryseat.each do |t| %>
+    <div class="entryseat">
+      <%= t.date %>
+      <%= t.created_at %>
+    <%= link_to "詳細へ", entryseat_path(params.id) %>
+    </div>
+  <% end %>
+</div>

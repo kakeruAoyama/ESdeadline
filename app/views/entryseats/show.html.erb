@@ -1,0 +1,16 @@
+<h1>詳細</h1>
+<h3>何卒</h3>
+<h3>本選考orインターン</h3>
+<h3>日付</h3>
+<h3>企業名</h3>
+
+
+<div class="entryseat">
+  <p><%= @entryseat.date %></p>
+  <p><%= @entryseat.created_at %></p>
+  <%=  raw Rinku.auto_link(simple_format(@entryseat.date)) %>
+</div>
+<% @book.tags.each do |tag| %>
+    <%= tag.name %>
+<% end %>
+<%= link_to "トップページに戻る", statics_index_path %>
